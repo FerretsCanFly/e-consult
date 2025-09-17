@@ -1,0 +1,58 @@
+# =============================================================================
+# E-Consult Vector Search API - .gitignore
+# =============================================================================
+
+# Python basics
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.env
+.venv
+venv/
+env/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Logs
+*.log
+logs/
+
+# IDE files
+.vscode/
+.idea/
+.cursor/
+.cursorrules
+.cursorignore
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# Project-specific
+*.pid
+*.sock
+*.bson
+*.dump
+
+# Security (never commit!)
+secrets.json
+*.key
+*.pem
+database.ini

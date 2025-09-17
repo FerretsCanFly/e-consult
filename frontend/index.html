@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Consult Vector Search</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 E-Consult Vector Search</h1>
+            <p>Medische content zoeken met AI-ondersteuning</p>
+        </div>
+
+        <div class="main-content">
+            <!-- Settings Section -->
+            <div class="form-section settings-section">
+                <h2>⚙️ Instellingen</h2>
+                <div class="form-group">
+                    <label for="defaultSystemPrompts">Standaard systeem instructies</label>
+                    <textarea 
+                        id="defaultSystemPrompts" 
+                        placeholder="Voeg hier standaard instructies toe die altijd worden meegenomen in alle AI-antwoorden..."
+                        rows="4"
+                    ></textarea>
+                    <small>Deze instructies worden automatisch toegevoegd aan alle AI-antwoorden, naast eventuele specifieke instructies van de huisarts.</small>
+                </div>
+                <div class="button-group">
+                    <button id="saveSettingsBtn" class="btn btn-secondary">
+                        💾 Instellingen Opslaan
+                    </button>
+                    <button id="resetSettingsBtn" class="btn btn-secondary">
+                        🔄 Reset naar Standaard
+                    </button>
+                </div>
+            </div>
+
+            <!-- Question Form -->
+            <div class="form-section">
+                <h2>📝 Stel je vraag</h2>
+                <div class="form-group">
+                    <label for="question">Wat wil je weten?</label>
+                    <textarea 
+                        id="question" 
+                        placeholder="Beschrijf je gezondheidsvraag hier..."
+                        rows="4"
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- General Practice Instructions -->
+            <div class="form-section">
+                <h2>👨‍⚕️ Instructies van de huisarts (optioneel)</h2>
+                <div class="form-group">
+                    <label for="doctorInstructions">Speciale instructies voor antwoord</label>
+                    <textarea 
+                        id="doctorInstructions" 
+                        placeholder="Bijv.: Schrijf in eenvoudige taal, focus op praktische tips..."
+                        rows="3"
+                    ></textarea>
+                </div>
+            </div>
+
+            <!-- Search Button -->
+            <div class="form-section">
+                <button id="searchBtn" class="btn">
+                    🔍 Zoek Antwoord
+                </button>
+            </div>
+
+            <!-- Loading State -->
+            <div id="loading" class="loading" style="display: none;">
+                <div class="spinner"></div>
+                <p>Bezig met zoeken naar relevante informatie...</p>
+            </div>
+
+            <!-- Error/Success Messages -->
+            <div id="messageArea"></div>
+
+            <!-- Answer Section -->
+            <div id="answerSection" class="answer-section" style="display: none;">
+                <h2>💡 Antwoord</h2>
+                <div class="form-group">
+                    <label for="answerContent">Antwoord (bewerkbaar)</label>
+                    <div 
+                        id="answerContent" 
+                        class="answer-content" 
+                        contenteditable="true"
+                        placeholder="Het antwoord verschijnt hier..."
+                    ></div>
+                </div>
+                
+                <!-- References Section -->
+                <div class="form-group">
+                    <label for="referencesContent">📚 Gebruikte Bronnen (alleen-lezen)</label>
+                    <div 
+                        id="referencesContent" 
+                        class="references-content"
+                        readonly
+                    ></div>
+                </div>
+                
+                <div class="button-group">
+                    <button id="saveAnswerBtn" class="btn btn-secondary">
+                        💾 Antwoord Opslaan
+                    </button>
+                    <button id="copyAnswerBtn" class="btn btn-secondary">
+                        📋 Kopieer naar Klembord
+                    </button>
+                    <button id="clearAnswerBtn" class="btn btn-secondary">
+                        🗑️ Wissen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>
