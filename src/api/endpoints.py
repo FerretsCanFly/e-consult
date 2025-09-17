@@ -307,8 +307,9 @@ async def vector_search(request: SearchRequest):
         raise handle_vector_search_errors(e)
     
     if not raw_results:
-        return SearchResponse.from_llm_output(
+        return SearchResponse.create_error_response(
             query=request.query,
+            error_message="Geen relevante resultaten gevonden voor je zoekopdracht.",
             doctor_instructions=request.doctor_instructions
         )
     
